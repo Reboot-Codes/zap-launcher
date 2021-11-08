@@ -1,0 +1,54 @@
+{
+  "name": "zap-launcher",
+  "private": true,
+  "engines": {
+    "node": ">=v16.13",
+    "yarn": ">=1.22"
+  },
+  "main": "packages/main/dist/index.cjs",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "precompile": "cross-env MODE=production yarn run build",
+    "compile": "electron-builder build --config electron-builder.config.js --dir --config.asar=false",
+    "pretest": "yarn run build",
+    "test": "node tests/app.spec.js",
+    "watch": "node scripts/watch.js",
+    "lint": "eslint . --ext js,ts,tsx",
+    "typecheck-main": "tsc --noEmit -p packages/main/tsconfig.json",
+    "typecheck-preload": "tsc --noEmit -p packages/preload/tsconfig.json",
+    "typecheck": "yarn run typecheck-main && yarn run typecheck-preload && yarn run typecheck-renderer",
+    "dist": "yarn run precompile && yarn run compile"
+  },
+  "browserslist": [
+    "Chrome 94"
+  ],
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged",
+    "pre-push": "yarn run typecheck"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": "eslint --cache --fix"
+  },
+  "devDependencies": {
+    "@types/electron-devtools-installer": "2.2.0",
+    "@types/react": "^17.0.34",
+    "@types/react-dom": "^17.0.11",
+    "@typescript-eslint/eslint-plugin": "5.3.0",
+    "cross-env": "7.0.3",
+    "electron": "15.3.0",
+    "electron-builder": "22.13.1",
+    "electron-devtools-installer": "3.2.0",
+    "eslint": "8.2.0",
+    "lint-staged": "11.2.6",
+    "playwright": "1.16.3",
+    "simple-git-hooks": "2.7.0",
+    "typescript": "4.4.4",
+    "vite": "2.6.13"
+  },
+  "dependencies": {
+    "electron-updater": "4.6.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "sass": "^1.43.4"
+  }
+}
