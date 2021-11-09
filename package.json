@@ -17,6 +17,7 @@
     "lint": "eslint . --ext js,ts,tsx",
     "typecheck-main": "tsc --noEmit -p packages/main/tsconfig.json",
     "typecheck-preload": "tsc --noEmit -p packages/preload/tsconfig.json",
+    "typecheck-renderer": "tsc --noEmit -p packages/renderer/tsconfig.json",
     "typecheck": "yarn run typecheck-main && yarn run typecheck-preload && yarn run typecheck-renderer",
     "dist": "yarn run precompile && yarn run compile"
   },
@@ -35,6 +36,7 @@
     "@types/react": "^17.0.34",
     "@types/react-dom": "^17.0.11",
     "@typescript-eslint/eslint-plugin": "5.3.0",
+    "@typescript-eslint/parser": "^5.3.1",
     "cross-env": "7.0.3",
     "electron": "15.3.0",
     "electron-builder": "22.13.1",
