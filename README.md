@@ -1,5 +1,7 @@
 # Zap Launcher
 
+[![Release](https://github.com/Reboot-Codes/zap-launcher/actions/workflows/release.yml/badge.svg)](https://github.com/Reboot-Codes/zap-launcher/actions/workflows/release.yml)
+
 An electron(/vite/react) based, cross-platform(-ish), spotlight/search replacement. (Now with 20 times more parentheses!)
 
 ## Installation
