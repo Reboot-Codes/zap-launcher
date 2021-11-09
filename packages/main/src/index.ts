@@ -1,13 +1,34 @@
-import { app, BrowserWindow, shell, globalShortcut } from 'electron';
+import { app, BrowserWindow, shell, globalShortcut, Tray, Menu, nativeImage } from 'electron';
 import {join} from 'path';
 import { URL } from 'url';
 import os from 'os';
+import icon from './assets/Icon@2x.png';
 
 const homedir = os.homedir();
 const isSingleInstance = app.requestSingleInstanceLock();
+let tray: Tray;
 
 // Hide the dock icon on macOS
 app.dock.hide()
+// Add a menubar/tray icon
+app.whenReady().then(() => {
+  tray = new Tray(nativeImage.createFromDataURL(icon));
+  const menu: Menu = Menu.buildFromTemplate([
+    {
+      label: 'Quit',
+      type: 'normal',
+      'click': () => {
+        app.quit();
+        console.log('Quit App!');
+        app.exit(0);
+      },
+      'accelerator': "CommandOrControl+Q"
+    }
+  ])
+
+  tray.setToolTip('An electron based, cross-platform, spotlight/search replacement.');
+  tray.setContextMenu(menu);
+});
 
 if (!isSingleInstance) {
   app.quit();

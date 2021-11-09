@@ -22,7 +22,7 @@ const config = {
     sourcemap: 'inline',
     target: `node${node}`,
     outDir: 'dist',
-    assetsDir: '.',
+    assetsDir: './assets',
     minify: process.env.MODE !== 'development',
     lib: {
       entry: 'src/index.ts',
