@@ -1,6 +1,7 @@
 {
   "name": "zap-launcher",
   "private": true,
+  "author": "Reboot-Codes",
   "engines": {
     "node": ">=v16.13",
     "yarn": ">=1.22"

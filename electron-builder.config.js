@@ -18,7 +18,7 @@ const config = {
   extraMetadata: {
     version: process.env.VITE_APP_VERSION,
   },
-  productName: 'Zap Launcher'
+  productName: 'Zap Launcher',
 };
 
 module.exports = config;
