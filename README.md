@@ -17,5 +17,5 @@ cd zap-launcher
 yarn && yarn dist
 
 # Example for macOS (either Intel or M*):
-mv ./dist/mac-*/Zap\ Launcher.app /Applications
+mv ./dist/mac-*/Zap\ Launcher.app /Applications/Zap\ Launcher.app
 ```
