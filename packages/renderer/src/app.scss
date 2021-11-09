@@ -58,13 +58,13 @@ $app-width: 718px;
 
 .dark-glass {
   $glass-opacity: 0.75;
-  $border-glass-opacity: 0.125;
+  $border-glass-opacity: 1;
 
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
-  background-color: rgba(0, 0, 0, $glass-opacity);
+  background-color: rgba(15, 15, 15, $glass-opacity);
   border-radius: $border-radius;
-  border: 1px solid rgba(255, 255, 255, $border-glass-opacity);
+  border: 1px solid rgba(114, 114, 114, $border-glass-opacity);
 }
 
 .vite-glass {
