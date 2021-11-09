@@ -56,22 +56,24 @@ const createWindow = async () => {
     show: false, // Use 'ready-to-show' event to show window, or else it'll look weird while vite loads
     frame: false, // No window controls, this uses keyboard shortcuts
     transparent: true,
-    vibrancy: 'hud', // macOS requirement
+    // vibrancy: 'hud', // macOS requirement, frosting looks weird, gimme a sec
     visualEffectState: 'active',
     roundedCorners: false,
     hasShadow: true,
     movable: false,
     resizable: false,
-    height: 70,
+    height: 500,
+    width: 720,
     alwaysOnTop: true,
     fullscreenable: false,
     webPreferences: {
       nodeIntegration: true,
       nativeWindowOpen: true,
       preload: join(__dirname, '../../preload/dist/index.cjs'),
+      experimentalFeatures: true
     },
   });
-  mainWindow?.setPosition(mainWindow?.getPosition()[0], mainWindow?.getPosition()[1] - 210, false);
+  // mainWindow?.setPosition(mainWindow?.getPosition()[0], mainWindow?.getPosition()[1] - 210, false);
   mainWindow?.setSkipTaskbar(true);
 
   /**
